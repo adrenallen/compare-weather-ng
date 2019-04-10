@@ -1,0 +1,42 @@
+<span>
+  <mat-card>
+    <mat-card-title>
+      {{date.getMonth()+1}}/{{date.getDate()}}
+    </mat-card-title>
+    <mat-card-content>
+      <table>
+        <tr>
+          <td colspan="2">
+            <span>{{tileData.summary}}</span>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>High:</td>
+          <td>{{high}} F</td>
+        </tr>
+
+        <tr>
+          <td>Low:</td>
+          <td>{{low}} F</td>
+        </tr>
+
+        <tr>
+          <td>Precip:</td>
+          <td>{{rainChance}}%</td>
+        </tr>
+
+        <tr>
+          <td>Humidity:</td>
+          <td>{{humidity}}%</td>
+        </tr>
+
+        <tr>
+          <td>Wind:</td>
+          <td>{{windSpeed}} mph</td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</span>

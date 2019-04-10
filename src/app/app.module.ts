@@ -5,13 +5,24 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { WeatherRowComponent } from './weather-row/weather-row.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { WeatherTileComponent } from './weather-tile/weather-tile.component';
+import {MatCardModule} from '@angular/material/card';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherRowComponent,
+    WeatherTileComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

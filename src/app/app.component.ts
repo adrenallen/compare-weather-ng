@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
+import { RowData } from './row-data';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,22 @@ import { WeatherService } from './weather.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'compare-weather-ng';
+  rows = Array<RowData>();
   constructor(private weatherService: WeatherService){
 
   }
 
   ngOnInit(){
-    this.weatherService.getWeather("cincinnati, oh").subscribe((result) =>{
-      console.log(result);
-    });
+    // this.weatherService.getWeather("cincinnati, oh").subscribe((result) =>{
+    //   console.log(result);
+    // });
+  }
+
+  addRow(){
+    this.rows.push(new RowData());
+  }
+
+  test(){
+    console.log(this.rows);
   }
 }
