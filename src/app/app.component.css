@@ -1,5 +1,5 @@
 .main-table{
-    border-collapse: collapse;
+    
 }
 
 .bottom-buttons{
@@ -8,6 +8,24 @@
 }
 
 .about-box{
-    margin-top:20px;
+    margin-top:60px;
+}
+
+.table-holder{
+    margin-top:8px;
+    width:100%;
+    position:relative;
+    overflow-x:scroll;
+}
+
+mat-toolbar span:first-child{
+    flex: 1 1 auto;
+}
+.powered-by{
+    flex: 1 1 auto;
     text-align:right;
+}
+
+.spacer-span{
+    flex:1 1 auto;
 }

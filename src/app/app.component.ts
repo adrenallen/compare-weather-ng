@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     //   console.log(result);
     // });
     this.addRow();
+    this.addRow();
   }
 
   hasEmpty() : boolean{

@@ -1,14 +1,21 @@
 <div>
   <mat-toolbar color="primary">
     <span>Weather Compare</span>
+    <span class='spacer-span'></span>
+    <span class='powered-by'>
+      <a target="_" class="attribution-one-line" href="https://darksky.net/poweredby/"><img
+          src="/assets/poweredby-darkbackground.png" style="height: 3.5rem;"></a>
+    </span>
   </mat-toolbar>
-  <table class='main-table'>
-    <app-weather-row *ngFor="let row of rows" [rowData]="row" (onDelete)="delete($event)"></app-weather-row>
-  </table>
+  <div class='table-holder'>
+    <table class='main-table'>
+      <app-weather-row *ngFor="let row of rows" [rowData]="row" (onDelete)="delete($event)"></app-weather-row>
+    </table>
+  </div>
   <div class='bottom-buttons'>
-      <button color="primary" [disabled]="hasEmpty()" mat-raised-button (click)="addRow()">Add</button>
+    <button color="primary" [disabled]="hasEmpty()" mat-raised-button (click)="addRow()">Add</button>
   </div>
   <div class='about-box'>
-      <a class="attribution-one-line" href="https://darksky.net/poweredby/"><img src="/assets/poweredby-oneline.png" style="height: 3.5rem;"></a>
+    
   </div>
 </div>
