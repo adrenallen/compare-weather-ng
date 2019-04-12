@@ -3,7 +3,13 @@
     position:relative;
 }
 .weather-icon{
-    right:10px;
-    top:10px;
+    top:0;
+    right:0;
     position:absolute;
+    mat-icon{
+        width:64px;
+        height:64px;
+        margin-top:-10px;
+        margin-right:-10px;
+    }
 }

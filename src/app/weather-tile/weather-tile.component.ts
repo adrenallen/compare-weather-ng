@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-weather-tile',
@@ -14,7 +16,52 @@ export class WeatherTileComponent implements OnInit {
   public rainChance;
   public windSpeed;
   public humidity;
-  constructor() { }
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    
+    iconRegistry.addSvgIcon(
+      'clear-day',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Sun.svg')
+    );
+
+    iconRegistry.addSvgIcon(
+      'clear-night',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Moon-Waning-Crescent.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'rain',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud-Rain.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'snow',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud-Snow.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'sleet',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud-Hail.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'wind',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Wind.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'fog',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud-Fog.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'cloudy',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'partly-cloudy-day',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Cloud-Sun.svg')
+    );
+    iconRegistry.addSvgIcon(
+      'partly-cloudy-night',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/Sun.svg')
+    );
+
+
+   }
 
   ngOnInit() {
     console.log(this.tileData);
