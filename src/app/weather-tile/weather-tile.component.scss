@@ -13,3 +13,16 @@
         margin-right:-10px;
     }
 }
+
+table{
+    tr:first-child{
+        td{
+            height:65px;
+            overflow:auto;
+        }
+    }
+    width:100%;
+    td{
+        width:50%;
+    }
+}

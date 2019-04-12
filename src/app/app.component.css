@@ -29,3 +29,8 @@ mat-toolbar span:first-child{
 .spacer-span{
     flex:1 1 auto;
 }
+
+app-weather-row{
+    width:100%;
+    display:block;
+}
