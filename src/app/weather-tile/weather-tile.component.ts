@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-weather-tile',
   templateUrl: './weather-tile.component.html',
-  styleUrls: ['./weather-tile.component.css']
+  styleUrls: ['./weather-tile.component.scss']
 })
 export class WeatherTileComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { WeatherService } from '../weather.service';
 @Component({
   selector: 'app-weather-row',
   templateUrl: './weather-row.component.html',
-  styleUrls: ['./weather-row.component.css']
+  styleUrls: ['./weather-row.component.scss']
 })
 export class WeatherRowComponent implements OnInit {
   @Input('rowData') rowData: RowData;

@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "compare-weather-ng"
+  "defaultProject": "compare-weather-ng",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
