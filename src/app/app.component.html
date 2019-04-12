@@ -1,7 +1,14 @@
 <div>
+  <mat-toolbar color="primary">
+    <span>Weather Compare</span>
+  </mat-toolbar>
   <table class='main-table'>
-    <app-weather-row *ngFor="let row of rows" [rowData]="row"></app-weather-row>
+    <app-weather-row *ngFor="let row of rows" [rowData]="row" (onDelete)="delete($event)"></app-weather-row>
   </table>
-  <button (click)="addRow()">Add</button>
-  <button (click)="test()">Test</button>
+  <div class='bottom-buttons'>
+      <button color="primary" [disabled]="hasEmpty()" mat-raised-button (click)="addRow()">Add</button>
+  </div>
+  <div class='about-box'>
+      <a class="attribution-one-line" href="https://darksky.net/poweredby/"><img src="/assets/poweredby-oneline.png" style="height: 3.5rem;"></a>
+  </div>
 </div>

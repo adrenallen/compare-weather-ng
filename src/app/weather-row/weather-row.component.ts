@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RowData } from '../row-data';
 import { WeatherService } from '../weather.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-weather-row',
@@ -9,7 +10,8 @@ import { WeatherService } from '../weather.service';
 })
 export class WeatherRowComponent implements OnInit {
   @Input('rowData') rowData: RowData;
-  constructor(private weatherService: WeatherService){
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
+  constructor(private weatherService: WeatherService, private snackBar: MatSnackBar){
   }
 
   ngOnInit() {
@@ -21,7 +23,14 @@ export class WeatherRowComponent implements OnInit {
     this.weatherService.getWeather(this.rowData.address)
       .subscribe((response) => {
         this.rowData.weatherData = response;
+      }, (error) =>{
+        this.rowData.weatherData = null;
+        this.snackBar.open("Location was not found!", "Okay");
       });    
+  }
+
+  delete(){
+    this.onDelete.emit(this.rowData);
   }
 
 }

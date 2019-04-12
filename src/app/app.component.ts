@@ -17,6 +17,13 @@ export class AppComponent implements OnInit{
     // this.weatherService.getWeather("cincinnati, oh").subscribe((result) =>{
     //   console.log(result);
     // });
+    this.addRow();
+  }
+
+  hasEmpty() : boolean{
+    return this.rows.some((rowData) => {
+      return !rowData.weatherData;
+    })
   }
 
   addRow(){
@@ -25,5 +32,9 @@ export class AppComponent implements OnInit{
 
   test(){
     console.log(this.rows);
+  }
+
+  delete(rowData){
+    this.rows.splice(this.rows.indexOf(rowData), 1);
   }
 }
