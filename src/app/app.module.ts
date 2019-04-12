@@ -10,6 +10,7 @@ import { WeatherRowComponent } from './weather-row/weather-row.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { WeatherTileComponent } from './weather-tile/weather-tile.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatToolbarModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
