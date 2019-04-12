@@ -1,14 +1,11 @@
-<mat-card>
-  <mat-card-title>
+<tr>
+  <td>
     <input #addressInput matInput type='text' [value]="rowData.address" (change)="updateAddress(addressInput.value)">
-  </mat-card-title>
-  <mat-card-content>
-    <div *ngIf="rowData.weatherData">
-      <mat-grid-list cols="8">
-        <mat-grid-tile *ngFor="let day of rowData.weatherData.daily.data">
-          <app-weather-tile [tileData]="day"></app-weather-tile>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-  </mat-card-content>
-</mat-card>
+  </td>
+
+  <ng-container *ngIf="rowData.weatherData">
+      <td *ngFor="let day of rowData.weatherData.daily.data">
+        <app-weather-tile [tileData]="day"></app-weather-tile>
+      </td>
+  </ng-container>
+</tr>

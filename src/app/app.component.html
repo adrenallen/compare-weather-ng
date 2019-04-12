@@ -1,5 +1,7 @@
 <div>
-  <app-weather-row *ngFor="let row of rows" [rowData]="row"></app-weather-row>
+  <table>
+    <app-weather-row *ngFor="let row of rows" [rowData]="row"></app-weather-row>
+  </table>
   <button (click)="addRow()">Add</button>
   <button (click)="test()">Test</button>
 </div>
