@@ -34,3 +34,7 @@ app-weather-row{
     width:100%;
     display:block;
 }
+
+.about-box a{
+    opacity:0.75;
+}
