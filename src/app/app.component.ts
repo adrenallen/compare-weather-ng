@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params, UrlTree} from '@angular/router';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { RowData } from './row-data';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +11,37 @@ import { RowData } from './row-data';
 })
 export class AppComponent implements OnInit{
   rows = Array<RowData>();
-  constructor(private weatherService: WeatherService){
+  constructor(private weatherService: WeatherService, private activeRoute: ActivatedRoute, private router: Router, private location: Location){
 
   }
 
-  ngOnInit(){
-    // this.weatherService.getWeather("cincinnati, oh").subscribe((result) =>{
-    //   console.log(result);
-    // });
-    this.addRow();
-    this.addRow();
+  ngOnInit (){
+    this.activeRoute.queryParams.subscribe(params => {
+      let locations = params['locations'];
+
+      if(locations && locations.length > 0){
+        
+        //Reset in case we had empty rows... weird race condition
+        this.rows = Array<RowData>();
+
+        if(Array.isArray(locations)){
+          locations.forEach(location => {
+            this.addRow(location);
+          });
+        }else{
+          this.addRow(locations);
+        }
+      }
+      
+    });
+
+    if(this.rows.length < 1){
+      this.addRow('raleigh, nc');
+    }
+
+    if(this.rows.length < 2){
+      this.addRow('cincinnati, oh');
+    }
   }
 
   hasEmpty() : boolean{
@@ -27,15 +50,28 @@ export class AppComponent implements OnInit{
     })
   }
 
-  addRow(){
-    this.rows.push(new RowData());
+  addRow(address: string = ''){
+    let newRow = new RowData();
+    newRow.address = address.replace(/[^A-Za-z0-9,\s]/g, '');
+    this.rows.push(newRow);
   }
 
-  test(){
-    console.log(this.rows);
+  updateLink(){
+    let locations = [];
+    this.rows.forEach((row) => {
+      if(row.address.length > 0){
+        locations.push(row.address);
+      }      
+    });
+
+    //Some magic to make sure the page does not refresh with updated url
+    let urlTree = this.router.parseUrl(this.router.url);
+    urlTree.queryParams = {locations};
+    window.history.pushState('', '', this.router.serializeUrl(urlTree));
   }
 
   delete(rowData){
     this.rows.splice(this.rows.indexOf(rowData), 1);
+    this.updateLink();
   }
 }

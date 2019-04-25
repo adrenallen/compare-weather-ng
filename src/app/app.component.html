@@ -9,7 +9,7 @@
   </mat-toolbar>
   <div class='table-holder'>
     <table class='main-table'>
-      <app-weather-row *ngFor="let row of rows" [rowData]="row" (onDelete)="delete($event)"></app-weather-row>
+      <app-weather-row *ngFor="let row of rows" [rowData]="row" (onDelete)="delete($event)" (onUpdate)="updateLink()"></app-weather-row>
     </table>
   </div>
   <div class='bottom-buttons'>
