@@ -64,13 +64,33 @@ export class WeatherTileComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.tileData);
     this.date = new Date(this.tileData.time * 1000);
     this.low = Math.round(this.tileData.temperatureMin);
     this.high = Math.round(this.tileData.temperatureMax);
     this.rainChance = Math.round(this.tileData.precipProbability*100);
     this.windSpeed = Math.round(this.tileData.windSpeed);
     this.humidity = Math.round(this.tileData.humidity * 100);
+  }
+
+  dayOfWeekToString(dow: number) : string{
+    switch(dow){
+      case 0:
+        return 'Sunday';
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      default:
+        return 'Not Found';
+    }
   }
 
 }

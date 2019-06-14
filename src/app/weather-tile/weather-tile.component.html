@@ -2,6 +2,8 @@
   <div class='header-div'>
     <h2 class='mat-h2'>
       {{date.getMonth()+1}}/{{date.getDate()}}
+      &nbsp;
+      {{dayOfWeekToString(date.getDay())}}
     </h2>
     <span class='weather-icon'>
       <mat-icon [svgIcon]="tileData.icon"></mat-icon>
